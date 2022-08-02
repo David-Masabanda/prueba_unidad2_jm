@@ -14,7 +14,7 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(name ="cita_medica")
+@Table(name ="CitaMedica")
 public class CitaMedica {
 	
 	@Id

@@ -14,7 +14,8 @@ import org.springframework.stereotype.Repository;
 
 import com.uce.edu.demo.repository.modelo.CitaMedica;
 import com.uce.edu.demo.repository.modelo.CitaReporte;
-import com.uce.edu.demo.repository.modelo.Doctor;
+
+import aj.org.objectweb.asm.Type;
 
 @Repository
 @Transactional
@@ -26,7 +27,7 @@ public class CitaMedicaRepositoryImpl implements ICitaMedicaRepository{
 	@Override
 	public List<CitaReporte> consultarCitas(LocalDateTime fecha, BigDecimal costo) {
 		TypedQuery<CitaReporte> myQuery=this.entityManager.createQuery(
-				"SELECT NEW com.uce.edu.demo.repository.modelo.CitaReporte(c.numero, c.fechaCita, c.valorCita, c.fechaControl) FROM cita_medica c WHERE c.fechaCita > :datoFecha AND c.valorCita> :datoPrecio",
+				"SELECT NEW com.uce.edu.demo.repository.modelo.CitaReporte(c.numero, c.fechaCita, c.valorCita, c.fechaControl) FROM CitaMedica c WHERE c.fechaCita > :datoFecha AND c.valorCita> :datoPrecio",
 				CitaReporte.class);
 		myQuery.setParameter("datoFecha", fecha);
 		myQuery.setParameter("datoPrecio", costo);
@@ -45,9 +46,9 @@ public class CitaMedicaRepositoryImpl implements ICitaMedicaRepository{
 
 	@Override
 	public CitaMedica buscarNumero(String numero) {
-		Query myQuery=this.entityManager.createQuery("SELECT c FROM cita_medica c WHERE c.numero =:datoNumero");
+		TypedQuery<CitaMedica> myQuery=this.entityManager.createQuery("SELECT c FROM CitaMedica c WHERE c.numero =:datoNumero", CitaMedica.class);
 		myQuery.setParameter("datoNumero",numero);
-		return (CitaMedica)myQuery.getSingleResult();
+		return myQuery.getSingleResult();
 	}
 
 }

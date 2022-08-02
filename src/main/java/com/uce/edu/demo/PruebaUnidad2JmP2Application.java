@@ -33,12 +33,12 @@ public class PruebaUnidad2JmP2Application implements CommandLineRunner{
 
 	@Override
 	public void run(String... args) throws Exception {
-		
+		/*
 		Doctor d1=new Doctor();
 		d1.setCedula("1719139881");
 		d1.setNombre("David");
 		d1.setApellido("Torres");
-		d1.setFechaNacimiento(LocalDateTime.of(1987, 1, 17, 0, 0, 0));
+		d1.setFechaNacimiento(LocalDateTime.of(1987, 1, 17, 0, 0));
 		d1.setNumeroConsultorio("8");
 		d1.setTitulo("Pediatria");
 		d1.setSalario(new BigDecimal(2500));
@@ -49,7 +49,7 @@ public class PruebaUnidad2JmP2Application implements CommandLineRunner{
 		d2.setCedula("1719139980");
 		d2.setNombre("Sofia");
 		d2.setApellido("Lopez");
-		d2.setFechaNacimiento(LocalDateTime.of(1992, 5, 21, 0, 0, 0));
+		d2.setFechaNacimiento(LocalDateTime.of(1992, 5, 21, 0, 0));
 		d2.setNumeroConsultorio("10");
 		d2.setTitulo("Dermatologia");
 		d2.setSalario(new BigDecimal(2700));
@@ -61,10 +61,10 @@ public class PruebaUnidad2JmP2Application implements CommandLineRunner{
 		p1.setCedula("1719131010");
 		p1.setNombre("Andrea");
 		p1.setApellido("Ordoñez");
-		p1.setFechaNacimiento(LocalDateTime.of(1999, 2, 17, 0, 0, 0));
+		p1.setFechaNacimiento(LocalDateTime.of(1999, 2, 17, 0, 0));
 		p1.setCodigoIess("1012");
-		p1.setEstatura("1.68");
-		p1.setPeso("59");
+		p1.setEstatura(1.68);
+		p1.setPeso(59.5);
 		p1.setGenero("Femenino");
 		
 		this.pacienteService.insertar(p1);
@@ -73,13 +73,24 @@ public class PruebaUnidad2JmP2Application implements CommandLineRunner{
 		p2.setCedula("1719131020");
 		p2.setNombre("Martha");
 		p2.setApellido("Loza");
-		p2.setFechaNacimiento(LocalDateTime.of(1999, 2, 17, 0, 0, 0));
+		p2.setFechaNacimiento(LocalDateTime.of(1997, 4, 23, 0, 0));
 		p2.setCodigoIess("1013");
-		p2.setEstatura("1.71");
-		p2.setPeso("61");
+		p2.setEstatura(1.71);
+		p2.setPeso(61.8);
 		p2.setGenero("Femenino");
 		
 		this.pacienteService.insertar(p2);
+		*/
+		
+		//Crea una cita 
+		//this.gestorCitasService.guardarCita("1719139980", "1719131020", "1010", LocalDateTime.now(), new BigDecimal(25), "Chillogallo");
+		
+		//Actualizar cita
+		this.gestorCitasService.actualizarCita("1010", "Queratosis Pilar", "Dermagel", LocalDateTime.of(2022, 8, 2, 0, 0));
+		
+		//Reporte Citas
+		//this.gestorCitasService.reporteCitas(LocalDateTime.of(2022, 8, 2, 0, 0), new BigDecimal(21));
+		
 	}
 
 }

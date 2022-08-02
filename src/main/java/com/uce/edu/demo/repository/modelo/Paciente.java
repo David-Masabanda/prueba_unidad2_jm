@@ -38,10 +38,10 @@ public class Paciente {
 	private String codigoIess;
 	
 	@Column(name ="paci_estatura")
-	private String estatura;
+	private Double estatura;
 	
 	@Column(name ="paci_peso")
-	private String peso;
+	private Double peso;
 	
 	@Column(name ="paci_genero")
 	private String genero;
@@ -90,29 +90,12 @@ public class Paciente {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 
-
 	public String getCodigoIess() {
 		return codigoIess;
 	}
 
 	public void setCodigoIess(String codigoIess) {
 		this.codigoIess = codigoIess;
-	}
-
-	public String getEstatura() {
-		return estatura;
-	}
-
-	public void setEstatura(String estatura) {
-		this.estatura = estatura;
-	}
-
-	public String getPeso() {
-		return peso;
-	}
-
-	public void setPeso(String peso) {
-		this.peso = peso;
 	}
 
 	public String getGenero() {
@@ -130,9 +113,22 @@ public class Paciente {
 	public void setCitas(List<CitaMedica> citas) {
 		this.citas = citas;
 	}
-	
 
-	
+	public Double getEstatura() {
+		return estatura;
+	}
+
+	public void setEstatura(Double estatura) {
+		this.estatura = estatura;
+	}
+
+	public Double getPeso() {
+		return peso;
+	}
+
+	public void setPeso(Double peso) {
+		this.peso = peso;
+	}
 	
 
 }
